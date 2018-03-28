@@ -1,17 +1,17 @@
 # Traversen TV
 ## Design Goals
 * Show slides
- * Based on category
+  * Based on category
 * Edit slides
- * Image based slides
- * Text based?
- * Social media
-  * Facebook events
+  * Image based slides
+  * Text based?
+  * Social media
+    * Facebook events
 * Show social media interactions live
- * Snapchat
- * Instagram
- * Twitter
- * etc...
+  * Snapchat
+  * Instagram
+  * Twitter
+  * etc...
 
 # electron-boilerplate
 
