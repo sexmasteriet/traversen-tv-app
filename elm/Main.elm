@@ -1,24 +1,59 @@
-module Main exposing (..)
+port module Main exposing (..)
 
-import Html exposing (Html, button, div, text)
+import Html exposing (Html, button, div, text, p, h1)
 import Html.Events exposing (onClick)
 
 main =
-  Html.beginnerProgram { model = 0, view = view, update = update }
+  Html.beginnerProgram { model = model, view = view, update = update }
 
-type Msg = Increment | Decrement
 
+-- MODEL
+
+type alias Model =
+  { greet : String
+  , number : Int
+  }
+
+model : Model
+model = Model "Hej" 0
+
+
+-- UPDATE
+
+type Msg 
+  = Greet String
+  | Increment
+  | Decrement
+
+update : Msg -> Model -> Model
 update msg model =
   case msg of
+    Greet greeting ->
+      { model | greet = greeting }
+
     Increment ->
-      model + 1
+      { model | number = model.number + 1}
 
     Decrement ->
-      model - 1
+      { model | number = model.number - 1}
+
+
+-- SUBSCRIPTIONS
+
+port greet : (String -> msg) -> Sub msg
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    greet Greet
+
+
+-- VIEW
 
 view model =
   div []
-    [ button [ onClick Decrement ] [ text "-" ]
-    , div [] [ text (toString model) ]
+    [ h1 [] [ text model.greet ]
+    , p [] [ text "Electron app running on this machine." ]
+    , button [ onClick Decrement ] [ text "-" ]
+    , div [] [ text (toString model.number) ]
     , button [ onClick Increment ] [ text "+" ]
     ]
