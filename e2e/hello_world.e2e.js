@@ -10,4 +10,8 @@ describe("application launch", () => {
       expect(text).to.equal("Hello World!");
     });
   });
+
+  it("shows slides", function() {
+    expect(true).to.equal(false);
+  });
 });

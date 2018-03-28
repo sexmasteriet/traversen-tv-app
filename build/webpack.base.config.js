@@ -13,7 +13,8 @@ module.exports = env => {
     resolve: {
       alias: {
         env: path.resolve(__dirname, `../config/env_${env}.json`)
-      }
+      },
+      extensions: [ ".js", ".elm" ]
     },
     devtool: "source-map",
     module: {
@@ -26,6 +27,11 @@ module.exports = env => {
         {
           test: /\.css$/,
           use: ["style-loader", "css-loader"]
+        },
+        {
+          test: /\.elm$/,
+          exclude: [/elm-stuff/, /node_modules/],
+          use: ["elm-webpack-loader"]
         }
       ]
     },

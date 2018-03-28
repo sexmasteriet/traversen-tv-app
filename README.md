@@ -1,3 +1,18 @@
+# Traversen TV
+## Design Goals
+* Show slides
+ * Based on category
+* Edit slides
+ * Image based slides
+ * Text based?
+ * Social media
+  * Facebook events
+* Show social media interactions live
+ * Snapchat
+ * Instagram
+ * Twitter
+ * etc...
+
 # electron-boilerplate
 
 A minimalistic boilerplate for [Electron runtime](http://electron.atom.io). Tested on Windows, macOS and Linux.  
